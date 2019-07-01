@@ -13,11 +13,18 @@ class Artist
         @@all << self
     end
 
-    def self.find_or_create_by_name(name)
-        if self.artist.nil?
-            self.artist = Artist.new(name)
-        else
-            self.artist.name = name
+    def self.find_or_create_by_name(aname)
+        # if self.artist.nil?
+        #     self.artist = Artist.new(name)
+        # else
+        #     self.artist.name = name
+        # end
+        Artist.all.each do |x|
+            if x.name == aname
+                x
+            else
+                Artist.new(name)
+            end
         end
     end
 
